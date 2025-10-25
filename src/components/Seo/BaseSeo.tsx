@@ -4,25 +4,25 @@ import { OG_URL } from "@/constant";
 const BaseSeo = () => {
   return (
     <DefaultSeo
-      title="Brave"
-      description="Brave"
+      title="AIMate"
+      description="AIMate"
       twitter={{
         cardType: "summary_large_image",
-        handle: "@Brave",
+        handle: "@AIMate",
       }}
       openGraph={{
-        title: "Brave",
-        description: "Brave",
+        title: "AIMate",
+        description: "AIMate",
         type: "website",
         locale: "en_IN",
-        url: "Brave.com",
-        site_name: "Brave",
+        url: "AIMate.com",
+        site_name: "AIMate",
         images: [
           {
             url: OG_URL,
             width: 1200,
             height: 630,
-            alt: "Brave",
+            alt: "AIMate",
           },
         ],
       }}
