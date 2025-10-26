@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import SanityClient from "@/client/sanity-client";
 import { REVALIDATE_TIME } from "@/constant";
-import { FooterQuery, NavQuery } from "@/graphql/Layout";
+import { FooterQuery, NavQuery } from "@/graphql/LayoutQuery";
 import { menuType } from "@/lib/types";
 
 const HomeContent = dynamic(() => import("@/components/Home/HomeContent"));

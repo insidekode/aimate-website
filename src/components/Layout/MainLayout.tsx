@@ -17,9 +17,9 @@ const MainLayout = ({
   return (
     <LazyMotion features={domAnimation}>
       <BaseSeo />
-      <Navbar menus={navData.menus} />
+      <Navbar menus={navData?.menus} />
       {children}
-      <Footer menus={footerData.menus} />
+      <Footer menus={footerData?.menus} />
     </LazyMotion>
   );
 };

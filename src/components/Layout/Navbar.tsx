@@ -14,10 +14,7 @@ const Navbar = ({ menus }: { menus: menuItem[] }) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // Run once on mount to set initial state
     handleScroll();
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -40,7 +37,7 @@ const Navbar = ({ menus }: { menus: menuItem[] }) => {
           <LogoText />
         </div>
         <div className="flex gap-9 items-center">
-          {menus.map((menu) => (
+          {menus?.map((menu) => (
             <a
               key={menu.title}
               href={menu.url}
