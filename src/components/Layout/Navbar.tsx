@@ -4,9 +4,20 @@ import LogoText from "@/icon/LogoText";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { menuItem } from "@/lib/types";
+import { Menu, X } from "lucide-react";
+
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Navbar = ({ menus }: { menus: menuItem[] }) => {
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,8 +58,40 @@ const Navbar = ({ menus }: { menus: menuItem[] }) => {
             </a>
           ))}
         </div>
-        <Button>Download</Button>
+        <div className="flex gap-2 items-center">
+          <Button>Download</Button>
+          <div
+            className="cursor-pointer md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <X /> : <Menu />}
+          </div>
+        </div>
       </div>
+      <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>
+              <div className="flex items-center gap-1.5">
+                <Logo />
+                <LogoText />
+              </div>
+            </SheetTitle>
+            <div className="flex flex-col gap-6 mt-8">
+              {menus?.map((menu) => (
+                <a
+                  key={menu.title}
+                  href={menu.url}
+                  className="animated-underline font-agane font-medium uppercase"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {menu.title}
+                </a>
+              ))}
+            </div>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };
