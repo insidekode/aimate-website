@@ -39,6 +39,13 @@ const Navbar = ({ navMenus }: { navMenus: menuItem[] }) => {
           <Logo />
           <LogoText />
         </div>
+        <div className="flex gap-9 items-center">
+          {navMenus.map((menu) => (
+            <a key={menu.title} href={menu.url} className="animated-underline">
+              {menu.title}
+            </a>
+          ))}
+        </div>
         <Button>Download Ai.Mate</Button>
       </div>
     </div>
