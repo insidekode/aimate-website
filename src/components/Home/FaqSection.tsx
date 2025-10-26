@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 const FaqSection = ({ homeData }: { homeData: homeType }) => {
   return (
     <div className="max-w-gutter mx-auto py-20">
+      <div id="faqs" />
       <div className="flex justify-center">
         <Badge>FAQs</Badge>
       </div>

@@ -124,7 +124,7 @@ body {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 font-dm-sans;
+    @apply border-border outline-ring/50 font-dm-sans scroll-smooth scroll-m-24;
   }
   body {
     @apply bg-background text-foreground;
