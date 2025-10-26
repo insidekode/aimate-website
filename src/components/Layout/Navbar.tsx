@@ -3,8 +3,9 @@ import Logo from "@/icon/Logo";
 import LogoText from "@/icon/LogoText";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
+import { menuItem } from "@/lib/types";
 
-const Navbar = () => {
+const Navbar = ({ navMenus }: { navMenus: menuItem[] }) => {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {

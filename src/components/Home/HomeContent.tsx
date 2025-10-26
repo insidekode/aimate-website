@@ -1,8 +1,15 @@
+import { menuType } from "@/lib/types";
 import MainLayout from "../Layout/MainLayout";
 
-const HomeContent = () => {
+const HomeContent = ({
+  navData,
+  footerData,
+}: {
+  navData: menuType;
+  footerData: menuType;
+}) => {
   return (
-    <MainLayout>
+    <MainLayout navData={navData} footerData={footerData}>
       <p className="">HomeContentHomeContent</p>
       <p className="">HomeContentHomeContent</p>
       <p className="">HomeContentHomeContent</p>
