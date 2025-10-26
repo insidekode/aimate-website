@@ -24,3 +24,53 @@ export type staticType = {
   content: any[];
   seo: seoType;
 };
+
+export type homeType = {
+  seo: seoType;
+  title: string;
+  heading: string;
+  subHeading: string;
+  appPreviews: {
+    previewImage: string;
+    previewAltText: string;
+  }[];
+  quoteContent: string;
+  featuresHeading: string;
+  featuresSubHeading: string;
+  featuresItems: {
+    title: string;
+    description: string;
+    previewImage: string;
+  }[];
+  review: {
+    title: string;
+    description: string;
+    totalUsers: number;
+    avatars: string[];
+  };
+  reviewTitle: string;
+  reviewDescription: string;
+  reviews: {
+    _id: string;
+    name: string;
+    avatar: string;
+    rating: number;
+    review: string;
+  }[];
+  downloadTitle: string;
+  downloadDescription: string;
+  downloaFeatureImage: string;
+  downloaQr: string;
+  playStoreLink: string;
+  appStoreLink: string;
+  faqTitle: string;
+  faqDescription: string;
+  faqs: {
+    _id: string;
+    question: string;
+    answer: string;
+  }[];
+  haveQnTitle: string;
+  haveQnSubTitle: string;
+  haveQnDescription: string;
+};
