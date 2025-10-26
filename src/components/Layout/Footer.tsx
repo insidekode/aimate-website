@@ -8,8 +8,8 @@ import { menuItem } from "@/lib/types";
 const Footer = ({ menus }: { menus: menuItem[] }) => {
   return (
     <div className="px-4 mt-16">
-      <div className="max-w-gutter mx-auto flex items-center justify-between border-t-2 border-t-white/20 py-10">
-        <div className="flex gap-9 items-center">
+      <div className="max-w-gutter mx-auto flex flex-col md:flex-row items-center justify-between border-t-2 border-t-white/20 py-10 gap-y-8">
+        <div className="grid grid-cols-3 md:flex gap-4 md:gap-9 items-center">
           {menus.map((menu) => (
             <a
               key={menu.title}
@@ -20,7 +20,7 @@ const Footer = ({ menus }: { menus: menuItem[] }) => {
             </a>
           ))}
         </div>
-        <div className="flex flex-col items-end gap-4">
+        <div className="flex flex-col items-center md:items-end gap-3 md:gap-4">
           <div className="flex items-center gap-1.5">
             <Logo />
             <LogoText />
