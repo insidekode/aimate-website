@@ -36,7 +36,7 @@ const Navbar = ({ menus }: { menus: menuItem[] }) => {
           <Logo />
           <LogoText />
         </div>
-        <div className="flex gap-9 items-center">
+        <div className="flex gap-9 items-center max-md:hidden">
           {menus?.map((menu) => (
             <a
               key={menu.title}
@@ -47,7 +47,7 @@ const Navbar = ({ menus }: { menus: menuItem[] }) => {
             </a>
           ))}
         </div>
-        <Button>Download Ai.Mate</Button>
+        <Button>Download</Button>
       </div>
     </div>
   );
