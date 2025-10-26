@@ -68,7 +68,7 @@ export type homeType = {
   faqs: {
     _id: string;
     question: string;
-    answer: string;
+    answer: any[];
   }[];
   haveQnTitle: string;
   haveQnSubTitle: string;
