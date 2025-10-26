@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { menuItem } from "@/lib/types";
 
-const Navbar = ({ navMenus }: { navMenus: menuItem[] }) => {
+const Navbar = ({ menus }: { menus: menuItem[] }) => {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
@@ -40,8 +40,12 @@ const Navbar = ({ navMenus }: { navMenus: menuItem[] }) => {
           <LogoText />
         </div>
         <div className="flex gap-9 items-center">
-          {navMenus.map((menu) => (
-            <a key={menu.title} href={menu.url} className="animated-underline">
+          {menus.map((menu) => (
+            <a
+              key={menu.title}
+              href={menu.url}
+              className="animated-underline font-agane font-medium uppercase"
+            >
               {menu.title}
             </a>
           ))}

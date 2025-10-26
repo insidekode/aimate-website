@@ -3,6 +3,7 @@ import { LazyMotion, domAnimation } from "motion/react";
 import BaseSeo from "../Seo/BaseSeo";
 import Navbar from "./Navbar";
 import { menuType } from "@/lib/types";
+import Footer from "./Footer";
 
 const MainLayout = ({
   children,
@@ -16,8 +17,9 @@ const MainLayout = ({
   return (
     <LazyMotion features={domAnimation}>
       <BaseSeo />
-      <Navbar navMenus={navData.menus} />
+      <Navbar menus={navData.menus} />
       {children}
+      <Footer menus={footerData.menus} />
     </LazyMotion>
   );
 };
