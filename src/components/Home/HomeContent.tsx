@@ -1,6 +1,7 @@
 import { homeType, menuType } from "@/lib/types";
 import MainLayout from "../Layout/MainLayout";
 import SeoData from "../Seo/SeoData";
+import HaveAnyQuestions from "./HaveAnyQuestions";
 
 const HomeContent = ({
   navData,
@@ -20,6 +21,7 @@ const HomeContent = ({
         metaImage={homeData.seo?.image}
         url="/"
       />
+      <HaveAnyQuestions homeData={homeData} />
     </MainLayout>
   );
 };
