@@ -1,0 +1,69 @@
+export const NavQuery = `*[_type == "menu" && name == 'Header'][0]{
+  name, 
+  menus[]{
+    title,
+    url
+  }
+}`;
+
+export const FooterQuery = `*[_type == "menu" && name == 'Footer'][0]{
+  name, 
+  menus[]{
+    title,
+    url
+  }
+}`;
+
+export const HomeQuery = `*[_type == "home"][0]{
+  seo{
+    title,
+    description,
+    image
+  },
+  title,
+  heading,
+  subHeading,
+  appPreviews[]{
+    previewImage,
+    previewAltText
+  },
+  quoteContent,
+  featuresHeading,
+  featuresSubHeading,
+  featuresItems[]{
+    title,
+    description,
+    previewImage
+  },
+  review{
+    title,
+    description,
+    totalUsers,
+    avatars[]
+  },
+  reviewTitle,
+  reviewDescription,
+  reviews[]->{
+    _id,
+    name,
+    avatar,
+    rating,
+    review
+  },
+  downloadTitle,
+  downloadDescription,
+  downloaFeatureImage,
+  downloaQr,
+  playStoreLink,
+  appStoreLink,
+  faqTitle,
+  faqDescription,
+  faqs[]->{
+    _id,
+    question,
+    answer
+  },
+  haveQnTitle,
+  haveQnSubTitle,
+  haveQnDescription
+}`;
