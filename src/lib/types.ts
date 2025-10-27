@@ -55,7 +55,7 @@ export type homeType = {
     name: string;
     avatar: string;
     rating: number;
-    review: string;
+    review: any[];
   }[];
   downloadTitle: string;
   downloadDescription: string;
