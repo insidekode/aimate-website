@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 
 const FaqSection = ({ homeData }: { homeData: homeType }) => {
   return (
-    <div className="max-w-gutter mx-auto py-20">
+    <div className="max-w-gutter mx-auto py-14">
       <div id="faqs" />
       <div className="flex justify-center">
         <Badge>FAQs</Badge>
@@ -24,10 +24,14 @@ const FaqSection = ({ homeData }: { homeData: homeType }) => {
       <Accordion
         type="single"
         collapsible
-        className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-8"
+        className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-8 items-start"
       >
         {homeData.faqs?.map((item, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
+          <AccordionItem
+            key={index}
+            value={`item-${index}`}
+            className="card-sahdow"
+          >
             <AccordionTrigger>{item.question}</AccordionTrigger>
             <AccordionContent className="prose-p:text-sm prose-p:opacity-80">
               <PortableContent content={item.answer} />
