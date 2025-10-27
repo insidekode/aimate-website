@@ -14,7 +14,6 @@ const HomeContent = ({
   footerData: menuType;
   homeData: homeType;
 }) => {
-  console.log(homeData);
   return (
     <MainLayout navData={navData} footerData={footerData}>
       <SeoData

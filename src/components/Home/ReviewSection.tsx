@@ -22,7 +22,10 @@ const ReviewSection = ({ homeData }: { homeData: homeType }) => {
       </p>
       <Marquee className="mt-11">
         {homeData?.reviews?.map((item, index) => (
-          <div className="card-sahdow p-7 rounded-md bg-card-background mx-2.5 relative w-xs">
+          <div
+            className="card-sahdow p-7 rounded-md bg-card-background mx-2.5 relative w-xs"
+            key={index}
+          >
             <div className="absolute top-4 right-3">
               <DoubleQuote />
             </div>

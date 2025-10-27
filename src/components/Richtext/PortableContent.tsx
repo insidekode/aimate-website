@@ -2,6 +2,7 @@ import React from "react";
 import { PortableText } from "@portabletext/react";
 import { getImageDimensions } from "@sanity/asset-utils";
 import { urlFor } from "@/client/sanity-client";
+import Image from "next/image";
 
 const PortableContent = ({ content }: { content: any[] }) => {
   return (
@@ -28,7 +29,7 @@ export default PortableContent;
 const RenderImage = ({ value }: { value: any }) => {
   const { width, height } = getImageDimensions(value);
   return (
-    <img
+    <Image
       src={urlFor(value).width(width).height(height).url()}
       alt={value.alt || " "}
       loading="lazy"
