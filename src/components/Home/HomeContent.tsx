@@ -4,6 +4,7 @@ import SeoData from "../Seo/SeoData";
 import HaveAnyQuestions from "./HaveAnyQuestions";
 import FaqSection from "./FaqSection";
 import ReviewSection from "./ReviewSection";
+import DownloadSecion from "./DownloadSecion";
 
 const HomeContent = ({
   navData,
@@ -22,6 +23,9 @@ const HomeContent = ({
         metaImage={homeData.seo?.image}
         url="/"
       />
+      <div className="px-4">
+        <DownloadSecion homeData={homeData} />
+      </div>
       <ReviewSection homeData={homeData} />
       <div className="px-4">
         <FaqSection homeData={homeData} />
