@@ -8,13 +8,14 @@ const DownloadSection = ({ homeData }: { homeData: homeType }) => {
     <div className="py-8 md:py-14">
       <div id="download" />
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-x-14 gap-y-8">
-        <div className="w-full md:w-[300px] shrink-0">
+        <div className="w-full md:w-[300px] shrink-0 relative">
+          <div className="bg-primary size-48 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 rounded-full blur-[200px]"></div>
           <Image
             src={urlFor(homeData.downloaFeatureImage).url()}
             alt="Download Feature"
             width={800}
             height={600}
-            className="w-full h-auto"
+            className="w-full h-auto relative z-10"
           />
         </div>
         <div>
