@@ -156,3 +156,9 @@ body {
   background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   @apply absolute top-0 bottom-0 w-32 z-10 max-md:hidden;
 }
+
+.fratures-card {
+  @apply bg-card-background p-7;
+  border: 1px solid #ffffff40;
+  border-radius: 25px;
+}
