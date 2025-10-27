@@ -5,9 +5,9 @@ import { urlFor } from "@/client/sanity-client";
 
 const DownloadSection = ({ homeData }: { homeData: homeType }) => {
   return (
-    <div className="py-14">
+    <div className="py-8 md:py-14">
       <div id="download" />
-      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-x-14">
+      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-x-14 gap-y-8">
         <div className="w-full md:w-[300px] shrink-0">
           <Image
             src={urlFor(homeData.downloaFeatureImage).url()}
@@ -17,7 +17,7 @@ const DownloadSection = ({ homeData }: { homeData: homeType }) => {
             className="w-full h-auto"
           />
         </div>
-        <div className="">
+        <div>
           <div className="flex max-md:justify-center">
             <Badge>DOWNLOAD NOW</Badge>
           </div>
@@ -27,7 +27,7 @@ const DownloadSection = ({ homeData }: { homeData: homeType }) => {
           <p className="opacity-80 my-2 max-md:text-center max-w-xl">
             {homeData.downloadDescription}
           </p>
-          <div className="flex mt-10 items-center gap-5 md:gap-10">
+          <div className="flex mt-10 items-center gap-5 md:gap-10 max-md:justify-center">
             <div className="relative">
               <Image
                 src="/assets/qr-wrap.png"

@@ -9,7 +9,7 @@ import StarIcon from "@/icon/StarIcon";
 
 const ReviewSection = ({ homeData }: { homeData: homeType }) => {
   return (
-    <div className="py-14">
+    <div className="py-8 md:py-14">
       <div id="reviews" />
       <div className="flex justify-center">
         <Badge>REVIEWS</Badge>
