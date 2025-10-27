@@ -34,7 +34,7 @@ export type homeType = {
     previewImage: string;
     previewAltText: string;
   }[];
-  quoteContent: any[];
+  quoteContent: string;
   featuresHeading: string;
   featuresSubHeading: string;
   featuresItems: {
