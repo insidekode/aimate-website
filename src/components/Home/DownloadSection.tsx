@@ -3,7 +3,7 @@ import { Badge } from "../ui/badge";
 import Image from "next/image";
 import { urlFor } from "@/client/sanity-client";
 
-const DownloadSecion = ({ homeData }: { homeData: homeType }) => {
+const DownloadSection = ({ homeData }: { homeData: homeType }) => {
   return (
     <div className="py-14">
       <div id="download" />
@@ -77,4 +77,4 @@ const DownloadSecion = ({ homeData }: { homeData: homeType }) => {
   );
 };
 
-export default DownloadSecion;
+export default DownloadSection;
