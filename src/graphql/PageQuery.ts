@@ -12,3 +12,8 @@ export const StaticPageQuery = (
     image
   }
 }`;
+
+export const SitemapQuery = `*[_type == "pages"]{
+  slug,
+  _updatedAt
+}`;

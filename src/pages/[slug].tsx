@@ -18,8 +18,6 @@ const FaqPage = ({
   footerData: menuType;
   staticData: staticType;
 }) => {
-  console.log(staticData);
-
   return (
     <StaticContent
       navData={navData}

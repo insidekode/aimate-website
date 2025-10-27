@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { Minus, MinusSquare, Plus, PlusSquare } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -17,7 +17,7 @@ function AccordionItem({
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
-      className={cn("bg-[#303030] rounded-xl p-5", className)}
+      className={cn("bg-card-background rounded-xl p-5", className)}
       {...props}
     />
   );
