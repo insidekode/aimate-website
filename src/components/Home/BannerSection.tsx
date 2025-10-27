@@ -4,6 +4,8 @@ import { homeType } from "@/lib/types";
 import { Badge } from "../ui/badge";
 import { urlFor } from "@/client/sanity-client";
 import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
+import PlayIcon from "@/icon/PlayIcon";
 
 const BannerSection = ({ homeData }: { homeData: homeType }) => {
   return (
@@ -17,6 +19,17 @@ const BannerSection = ({ homeData }: { homeData: homeType }) => {
       <p className="opacity-80 my-2 text-center max-w-2xl mx-auto">
         {homeData.subHeading}
       </p>
+      <div className="flex items-center gap-5 justify-center mt-5">
+        <a href="/#download" className="cursor-pointer">
+          <Button>Download Now</Button>
+        </a>
+        <a href="/" className="cursor-pointer">
+          <Button variant="outline">
+            <PlayIcon />
+            Play Video
+          </Button>
+        </a>
+      </div>
       <div className="flex items-center gap-2 justify-center mt-8">
         <div className="flex justify-center">
           {homeData?.review?.avatars.map((avatar, index) => (
