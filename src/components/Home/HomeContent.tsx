@@ -5,6 +5,7 @@ import HaveAnyQuestions from "./HaveAnyQuestions";
 import FaqSection from "./FaqSection";
 import ReviewSection from "./ReviewSection";
 import DownloadSection from "./DownloadSection";
+import QuoteSection from "./QuoteSection";
 
 const HomeContent = ({
   navData,
@@ -24,6 +25,7 @@ const HomeContent = ({
         url="/"
       />
       <div className="px-4">
+        <QuoteSection homeData={homeData} />
         <DownloadSection homeData={homeData} />
       </div>
       <ReviewSection homeData={homeData} />
