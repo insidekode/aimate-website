@@ -22,7 +22,7 @@ const DownloadSection = ({ homeData }: { homeData: homeType }) => {
           <div className="flex max-md:justify-center">
             <Badge>DOWNLOAD NOW</Badge>
           </div>
-          <h2 className="text-2xl md:text-4xl uppercase font-agane max-md:text-center mt-5">
+          <h2 className="text-2xl md:text-4xl uppercase font-nohemi max-md:text-center mt-5">
             {homeData.downloadTitle}
           </h2>
           <p className="opacity-80 my-2 max-md:text-center max-w-xl">

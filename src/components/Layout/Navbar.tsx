@@ -50,7 +50,7 @@ const Navbar = ({ menus }: { menus: menuItem[] }) => {
             <a
               key={menu.title}
               href={menu.url}
-              className="animated-underline font-agane font-medium uppercase"
+              className="animated-underline font-nohemi font-medium uppercase"
             >
               {menu.title}
             </a>
@@ -80,7 +80,7 @@ const Navbar = ({ menus }: { menus: menuItem[] }) => {
                 <a
                   key={menu.title}
                   href={menu.url}
-                  className="animated-underline font-agane font-medium uppercase"
+                  className="animated-underline font-nohemi font-medium uppercase"
                   onClick={() => setMenuOpen(false)}
                 >
                   {menu.title}

@@ -15,7 +15,7 @@ const FaqSection = ({ homeData }: { homeData: homeType }) => {
       <div className="flex justify-center">
         <Badge>FAQs</Badge>
       </div>
-      <h2 className="text-2xl md:text-4xl uppercase font-agane text-center mt-5">
+      <h2 className="text-2xl md:text-4xl uppercase font-nohemi text-center mt-5">
         {homeData.faqTitle}
       </h2>
       <p className="opacity-80 my-2 text-center max-w-xl mx-auto">

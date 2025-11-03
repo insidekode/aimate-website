@@ -12,7 +12,7 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
       <div className="flex justify-center">
         <Badge>FEATURES</Badge>
       </div>
-      <h2 className="text-2xl md:text-4xl uppercase font-agane text-center mt-5">
+      <h2 className="text-2xl md:text-4xl uppercase font-nohemi text-center mt-5">
         {homeData.featuresHeading}
       </h2>
       <p className="opacity-80 my-2 text-center max-w-xl mx-auto">
@@ -21,7 +21,7 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mt-8">
         <div className="fratures-card h-[554px] overflow-hidden relative">
           <div className="relative z-10">
-            <h3 className="font-agane text-center text-2xl">
+            <h3 className="font-nohemi text-center text-2xl">
               {homeData.featuresItems?.[0]?.title}
             </h3>
             <p className="font-light text-center opacity-70">
@@ -72,7 +72,7 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
             />
           </div>
           <div className="fratures-card h-[262px]">
-            <h3 className="font-agane text-center text-2xl">
+            <h3 className="font-nohemi text-center text-2xl">
               {homeData.featuresItems?.[1]?.title}
             </h3>
             <p className="font-light text-center opacity-70">
@@ -89,7 +89,7 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
         </div>
         <div className="fratures-card h-[554px] overflow-hidden relative">
           <div className="relative z-10">
-            <h3 className="font-agane text-center text-2xl">
+            <h3 className="font-nohemi text-center text-2xl">
               {homeData.featuresItems?.[2]?.title}
             </h3>
             <p className="font-light text-center opacity-70">
