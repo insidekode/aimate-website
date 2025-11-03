@@ -76,7 +76,7 @@ const BannerSection = ({ homeData }: { homeData: homeType }) => {
           </m.a>
         </m.div>
         <m.div
-          className="flex items-center gap-2 justify-center mt-8"
+          className="flex max-md:flex-col items-center gap-2 justify-center mt-8"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.1 }}
@@ -114,7 +114,7 @@ const BannerSection = ({ homeData }: { homeData: homeType }) => {
           </div>
           <div>
             <m.div
-              className="flex gap-1"
+              className="flex gap-1 max-md:justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.7, duration: 0.5 }}
