@@ -1,3 +1,5 @@
+import { m, useInView } from "motion/react";
+import { useRef } from "react";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 import { homeType } from "@/lib/types";
@@ -8,18 +10,37 @@ import PortableContent from "../Richtext/PortableContent";
 import StarIcon from "@/icon/StarIcon";
 
 const ReviewSection = ({ homeData }: { homeData: homeType }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
   return (
     <div className="py-8 md:py-14">
       <div id="reviews" />
-      <div className="flex justify-center">
+      <m.div
+        ref={ref}
+        className="flex justify-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
         <Badge>REVIEWS</Badge>
-      </div>
-      <h2 className="text-2xl md:text-4xl uppercase font-nohemi text-center mt-5">
+      </m.div>
+      <m.h2
+        className="text-2xl md:text-4xl uppercase font-nohemi text-center mt-5"
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+      >
         {homeData.reviewTitle}
-      </h2>
-      <p className="opacity-80 my-2 text-center max-w-xl mx-auto">
+      </m.h2>
+      <m.p
+        className="opacity-80 my-2 text-center max-w-xl mx-auto"
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+      >
         {homeData.reviewDescription}
-      </p>
+      </m.p>
       <div className="relative">
         <div className="gradient-review-section left-0" />
         <div className="gradient-review-section right-0 rotate-180" />
