@@ -1,11 +1,11 @@
+import { m, useInView } from "motion/react";
+import Image from "next/image";
+import { useRef, useState, useEffect } from "react";
 import { homeType } from "@/lib/types";
 import { Badge } from "../ui/badge";
-import Image from "next/image";
 import { urlFor } from "@/client/sanity-client";
 import StarIcon from "@/icon/StarIcon";
 import { cn } from "@/lib/utils";
-import { m, useInView } from "motion/react";
-import { useRef, useState, useEffect } from "react";
 
 const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
   const ref = useRef(null);
