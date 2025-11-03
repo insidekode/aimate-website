@@ -5,11 +5,28 @@ import { urlFor } from "@/client/sanity-client";
 import StarIcon from "@/icon/StarIcon";
 import { cn } from "@/lib/utils";
 import { m, useInView } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Check on mount
+    checkIsMobile();
+
+    // Add event listener for resize
+    window.addEventListener("resize", checkIsMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
 
   return (
     <m.div
@@ -47,40 +64,38 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mt-8">
         <m.div
           className="fratures-card h-[554px] overflow-hidden relative"
-          initial={{ opacity: 0, x: -50, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={
-            isInView
-              ? { opacity: 1, x: 0, scale: 1 }
-              : { opacity: 0, x: -50, scale: 0.9 }
+            isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }
           }
-          transition={{ duration: 0.8, delay: 0.8 }}
-          whileHover={{ scale: 1.02, y: -5 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          whileHover={{ scale: isMobile ? 1.01 : 1.02, y: isMobile ? -2 : -5 }}
         >
           <div className="relative z-10">
             <m.h3
               className="font-nohemi text-center text-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
             >
               {homeData.featuresItems?.[0]?.title}
             </m.h3>
             <m.p
               className="font-light text-center opacity-70"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
             >
               {homeData.featuresItems?.[0]?.description}
             </m.p>
             <m.div
-              initial={{ opacity: 0, y: 30, scale: 0.8 }}
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={
                 isInView
                   ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: 30, scale: 0.8 }
+                  : { opacity: 0, y: 20, scale: 0.9 }
               }
-              transition={{ duration: 0.8, delay: 1.4 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
             >
               <Image
                 src={urlFor(homeData.featuresItems?.[0]?.previewImage).url()}
@@ -97,26 +112,29 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
             animate={
               isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
             }
-            transition={{ duration: 1.0, delay: 0.9 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
           />
         </m.div>
         <div className="flex flex-col gap-7">
           <m.div
             className="fratures-card h-[262px] flex flex-col items-center justify-center"
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={
               isInView
                 ? { opacity: 1, y: 0, scale: 1 }
-                : { opacity: 0, y: 30, scale: 0.9 }
+                : { opacity: 0, y: 20, scale: 0.95 }
             }
-            transition={{ duration: 0.8, delay: 1.0 }}
-            whileHover={{ scale: 1.02, y: -3 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            whileHover={{
+              scale: isMobile ? 1.01 : 1.02,
+              y: isMobile ? -2 : -3,
+            }}
           >
             <m.div
               className="flex justify-center"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
             >
               {homeData?.review?.avatars.map((avatar, index) => (
                 <m.div
@@ -128,13 +146,13 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
                       : { opacity: 0, scale: 0 }
                   }
                   transition={{
-                    delay: 1.4 + index * 0.1,
-                    duration: 0.4,
+                    delay: 0.9 + index * 0.08,
+                    duration: 0.3,
                     type: "spring",
-                    stiffness: 260,
+                    stiffness: 200,
                     damping: 20,
                   }}
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: isMobile ? 1.05 : 1.1 }}
                 >
                   <Image
                     src={urlFor(avatar).url()}
@@ -151,15 +169,15 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
             </m.div>
             <m.p
               className="font-black text-[40px] text-center my-2"
-              initial={{ opacity: 0, scale: 0.5 }}
+              initial={{ opacity: 0, scale: 0.7 }}
               animate={
-                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
+                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.7 }
               }
               transition={{
-                duration: 0.8,
-                delay: 1.6,
+                duration: 0.6,
+                delay: 1.1,
                 type: "spring",
-                stiffness: 150,
+                stiffness: 120,
               }}
             >
               {homeData?.review?.totalUsers}+
@@ -168,25 +186,28 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
               className="flex gap-1 justify-center"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.6, delay: 1.8 }}
+              transition={{ duration: 0.5, delay: 1.3 }}
             >
               {Array.from({ length: 5 }).map((_, i) => (
                 <m.div
                   key={i}
-                  initial={{ opacity: 0, rotate: -180, scale: 0 }}
+                  initial={{ opacity: 0, rotate: -90, scale: 0 }}
                   animate={
                     isInView
                       ? { opacity: 1, rotate: 0, scale: 1 }
-                      : { opacity: 0, rotate: -180, scale: 0 }
+                      : { opacity: 0, rotate: -90, scale: 0 }
                   }
                   transition={{
-                    delay: 2.0 + i * 0.1,
-                    duration: 0.5,
+                    delay: 1.4 + i * 0.08,
+                    duration: 0.4,
                     type: "spring",
-                    stiffness: 260,
+                    stiffness: 200,
                     damping: 20,
                   }}
-                  whileHover={{ scale: 1.2, rotate: 15 }}
+                  whileHover={{
+                    scale: isMobile ? 1.1 : 1.2,
+                    rotate: isMobile ? 10 : 15,
+                  }}
                 >
                   <StarIcon />
                 </m.div>
@@ -199,44 +220,47 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
               className="text-center mt-3 text-sm opacity-90 [&_span]:font-bold [&_span]:text-primary [&_span]:uppercase"
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-              transition={{ delay: 2.5, duration: 0.5 }}
+              transition={{ delay: 1.8, duration: 0.4 }}
             />
           </m.div>
           <m.div
             className="fratures-card h-[262px]"
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={
               isInView
                 ? { opacity: 1, y: 0, scale: 1 }
-                : { opacity: 0, y: 30, scale: 0.9 }
+                : { opacity: 0, y: 20, scale: 0.95 }
             }
-            transition={{ duration: 0.8, delay: 1.2 }}
-            whileHover={{ scale: 1.02, y: -3 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            whileHover={{
+              scale: isMobile ? 1.01 : 1.02,
+              y: isMobile ? -2 : -3,
+            }}
           >
             <m.h3
               className="font-nohemi text-center text-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+              transition={{ duration: 0.5, delay: 1.0 }}
             >
               {homeData.featuresItems?.[1]?.title}
             </m.h3>
             <m.p
               className="font-light text-center opacity-70"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 1.6 }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+              transition={{ duration: 0.5, delay: 1.1 }}
             >
               {homeData.featuresItems?.[1]?.description}
             </m.p>
             <m.div
-              initial={{ opacity: 0, y: 30, scale: 0.8 }}
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={
                 isInView
                   ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: 30, scale: 0.8 }
+                  : { opacity: 0, y: 20, scale: 0.9 }
               }
-              transition={{ duration: 0.8, delay: 1.8 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
             >
               <Image
                 src={urlFor(homeData.featuresItems?.[1]?.previewImage).url()}
@@ -250,40 +274,38 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
         </div>
         <m.div
           className="fratures-card h-[554px] overflow-hidden relative"
-          initial={{ opacity: 0, x: 50, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={
-            isInView
-              ? { opacity: 1, x: 0, scale: 1 }
-              : { opacity: 0, x: 50, scale: 0.9 }
+            isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }
           }
-          transition={{ duration: 0.8, delay: 1.4 }}
-          whileHover={{ scale: 1.02, y: -5 }}
+          transition={{ duration: 0.6, delay: 1.0 }}
+          whileHover={{ scale: isMobile ? 1.01 : 1.02, y: isMobile ? -2 : -5 }}
         >
           <div className="relative z-10">
             <m.h3
               className="font-nohemi text-center text-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 1.6 }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
             >
               {homeData.featuresItems?.[2]?.title}
             </m.h3>
             <m.p
               className="font-light text-center opacity-70"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 1.8 }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+              transition={{ duration: 0.5, delay: 1.3 }}
             >
               {homeData.featuresItems?.[2]?.description}
             </m.p>
             <m.div
-              initial={{ opacity: 0, y: 30, scale: 0.8 }}
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={
                 isInView
                   ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: 30, scale: 0.8 }
+                  : { opacity: 0, y: 20, scale: 0.9 }
               }
-              transition={{ duration: 0.8, delay: 2.0 }}
+              transition={{ duration: 0.6, delay: 1.4 }}
             >
               <Image
                 src={urlFor(homeData.featuresItems?.[2]?.previewImage).url()}
@@ -300,7 +322,7 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
             animate={
               isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
             }
-            transition={{ duration: 1.0, delay: 1.5 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
           />
         </m.div>
       </div>
