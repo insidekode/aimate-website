@@ -12,7 +12,7 @@ const QuoteSection = ({ homeData }: { homeData: homeType }) => {
         <BigQuoteEnd />
       </div>
       <div
-        className="text-center text-xl [&_span]:font-bold [&_span]:text-primary [&_span]:uppercase"
+        className="text-center text-base md:text-xl [&_span]:font-bold [&_span]:text-primary [&_span]:uppercase"
         dangerouslySetInnerHTML={{
           __html: homeData.quoteContent,
         }}

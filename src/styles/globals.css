@@ -45,7 +45,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-dm-sans: var(--font-dm-sans);
-  --font-agane: var(--font-agane);
+  --font-nohemi: var(--font-nohemi);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -86,7 +86,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-agane);
+  font-family: var(--font-nohemi);
 }
 
 .dark {

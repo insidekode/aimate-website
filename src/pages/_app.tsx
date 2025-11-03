@@ -10,15 +10,15 @@ const PagesTopLoader = dynamic(
   }
 );
 
-const agane = localFont({
+const nohemi = localFont({
   src: [
     {
-      path: "../fonts/Agane-ExtraBold.ttf",
-      weight: "900",
+      path: "../fonts/Nohemi-SemiBold.ttf",
+      weight: "600",
       style: "normal",
     },
   ],
-  variable: "--font-agane",
+  variable: "--font-nohemi",
 });
 
 const dmSans = localFont({
@@ -54,7 +54,7 @@ const dmSans = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${agane.variable} ${dmSans.variable}`}>
+    <div className={`${nohemi.variable} ${dmSans.variable}`}>
       <PagesTopLoader color="#D0FD3E" showSpinner={false} />
       <Component {...pageProps} />
     </div>
