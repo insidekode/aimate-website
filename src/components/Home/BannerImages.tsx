@@ -62,19 +62,55 @@ const BannerImages = ({ homeData }: { homeData: homeType }) => {
     },
   };
 
+  // Mobile variants with adjusted positioning
+  const mobileVariants = {
+    center: {
+      x: "0%",
+      scale: 1,
+      zIndex: 30,
+      opacity: 1,
+      rotateY: 0,
+      filter: "brightness(1) blur(0px)",
+    },
+    left: {
+      x: "-85%",
+      scale: 0.65,
+      zIndex: 10,
+      opacity: 0.5,
+      rotateY: 20,
+      filter: "brightness(0.8)",
+    },
+    right: {
+      x: "85%",
+      scale: 0.65,
+      zIndex: 10,
+      opacity: 0.5,
+      rotateY: -20,
+      filter: "brightness(0.8)",
+    },
+    hidden: {
+      x: "150%",
+      scale: 0.4,
+      zIndex: 0,
+      opacity: 0,
+      rotateY: -30,
+      filter: "brightness(0.5) blur(2px)",
+    },
+  };
+
   if (!images || images.length === 0) {
     return null;
   }
 
   return (
     <m.div
-      className="relative mt-16 md:mt-24 h-[500px] md:h-[650px] flex items-center justify-center"
+      className="relative mt-8 sm:mt-12 md:mt-16 lg:mt-24 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] xl:h-[700px] flex items-center justify-center px-4 sm:px-6 md:px-8"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 1.5 }}
     >
       <div
-        className="relative w-full max-w-6xl h-full"
+        className="relative w-full max-w-7xl h-full"
         style={{ perspective: "2000px" }}
       >
         <AnimatePresence mode="sync">
@@ -85,8 +121,8 @@ const BannerImages = ({ homeData }: { homeData: homeType }) => {
 
             const sizeClass =
               position === "center"
-                ? "w-[280px] md:w-[380px]"
-                : "w-[240px] md:w-[320px]";
+                ? "w-[200px] xs:w-[220px] sm:w-[260px] md:w-[320px] lg:w-[380px] xl:w-[420px]"
+                : "w-[160px] xs:w-[180px] sm:w-[220px] md:w-[280px] lg:w-[320px] xl:w-[360px]";
 
             return (
               <m.div
@@ -106,13 +142,14 @@ const BannerImages = ({ homeData }: { homeData: homeType }) => {
                 }}
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <div className="relative w-full aspect-9/19 overflow-hidden shadow-2xl">
+                <div className="relative w-full aspect-9/19 overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
                   <Image
                     src={urlFor(image.previewImage).url()}
                     alt={image.previewAltText || `App Preview ${index + 1}`}
                     fill
                     className="object-cover"
                     priority
+                    sizes="(max-width: 640px) 200px, (max-width: 768px) 260px, (max-width: 1024px) 320px, 420px"
                   />
                 </div>
               </m.div>
