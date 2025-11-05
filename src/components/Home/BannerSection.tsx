@@ -33,7 +33,7 @@ const BannerSection = ({ homeData }: { homeData: homeType }) => {
           <Badge>AI PARTNER</Badge>
         </m.div>
         <m.h2
-          className="text-3xl md:text-5xl uppercase font-nohemi text-center mt-5 max-w-5xl mx-auto"
+          className="text-3xl md:text-5xl capitalize font-nohemi text-center mt-5 max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}

@@ -34,7 +34,7 @@ const BannerImages = ({ homeData }: { homeData: homeType }) => {
       zIndex: 30,
       opacity: 1,
       rotateY: 0,
-      filter: "brightness(1) blur(0px)",
+      filter: "brightness(1)",
     },
     left: {
       x: "-75%",
