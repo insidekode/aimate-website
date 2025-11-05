@@ -1,125 +1,125 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { m } from "motion/react";
-import { urlFor } from "@/client/sanity-client";
+import { m, AnimatePresence } from "motion/react";
 import { homeType } from "@/lib/types";
+import { urlFor } from "@/client/sanity-client";
+import { cn } from "@/lib/utils";
 
 const BannerImages = ({ homeData }: { homeData: homeType }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = homeData?.appPreviews || [];
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const getPosition = (imageIndex: number) => {
+    const diff = (imageIndex - currentIndex + images.length) % images.length;
+    if (diff === 0) return "center";
+    if (diff === images.length - 1) return "left";
+    if (diff === 1) return "right";
+    return "hidden";
+  };
+
+  const variants = {
+    center: {
+      x: "0%",
+      scale: 1,
+      zIndex: 30,
+      opacity: 1,
+      rotateY: 0,
+      filter: "brightness(1) blur(0px)",
+    },
+    left: {
+      x: "-75%",
+      scale: 0.75,
+      zIndex: 10,
+      opacity: 0.7,
+      rotateY: 15,
+      filter: "brightness(0.9)",
+    },
+    right: {
+      x: "75%",
+      scale: 0.75,
+      zIndex: 10,
+      opacity: 0.7,
+      rotateY: -15,
+      filter: "brightness(0.9)",
+    },
+    hidden: {
+      x: "150%",
+      scale: 0.5,
+      zIndex: 0,
+      opacity: 0,
+      rotateY: -30,
+      filter: "brightness(0.5) blur(2px)",
+    },
+  };
+
+  if (!images || images.length === 0) {
+    return null;
+  }
+
   return (
     <m.div
-      className="flex items-center mt-8 md:mt-16 justify-center"
+      className="relative mt-16 md:mt-24 h-[500px] md:h-[650px] flex items-center justify-center"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 1.5 }}
     >
-      <m.div
-        initial={{ opacity: 0, y: 50, scale: 0.8 }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          x: [0, 50, 100, 50, 0],
-          rotate: [0, 2, 0, -2, 0],
-        }}
-        transition={{
-          opacity: { duration: 0.8, delay: 1.7 },
-          y: { duration: 0.8, delay: 1.7 },
-          scale: { duration: 0.8, delay: 1.7 },
-          x: {
-            duration: 8,
-            delay: 2.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          },
-          rotate: {
-            duration: 8,
-            delay: 2.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          },
-        }}
-        whileHover={{ scale: 1.1, zIndex: 30 }}
-        className="w-2/5 md:w-64 -mr-10"
+      <div
+        className="relative w-full max-w-6xl h-full"
+        style={{ perspective: "2000px" }}
       >
-        <Image
-          src={urlFor(homeData.appPreviews?.[0]?.previewImage).url()}
-          alt={homeData.appPreviews?.[0]?.previewAltText}
-          width={1920}
-          height={1080}
-          className="w-full"
-        />
-      </m.div>
-      <m.div
-        initial={{ opacity: 0, y: 50, scale: 0.8 }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          scale: [1, 1.2, 1, 1.2, 1],
-          rotateY: [0, 5, 0, -5, 0],
-        }}
-        transition={{
-          opacity: { duration: 0.8, delay: 1.8 },
-          y: { duration: 0.8, delay: 1.8 },
-          scale: {
-            duration: 8,
-            delay: 2.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          },
-          rotateY: {
-            duration: 8,
-            delay: 2.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          },
-        }}
-        whileHover={{ scale: 1.3, zIndex: 40 }}
-        className="w-1/2 md:w-80 z-20"
-      >
-        <Image
-          src={urlFor(homeData.appPreviews?.[1]?.previewImage).url()}
-          alt={homeData.appPreviews?.[1]?.previewAltText}
-          width={1920}
-          height={1080}
-          className="w-full"
-        />
-      </m.div>
-      <m.div
-        initial={{ opacity: 0, y: 50, scale: 0.8 }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          x: [0, -50, -100, -50, 0],
-          rotate: [0, -2, 0, 2, 0],
-        }}
-        transition={{
-          opacity: { duration: 0.8, delay: 1.9 },
-          y: { duration: 0.8, delay: 1.9 },
-          scale: { duration: 0.8, delay: 1.9 },
-          x: {
-            duration: 8,
-            delay: 2.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          },
-          rotate: {
-            duration: 8,
-            delay: 2.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          },
-        }}
-        whileHover={{ scale: 1.1, zIndex: 30 }}
-        className="w-2/5 md:w-64 -ml-10"
-      >
-        <Image
-          src={urlFor(homeData.appPreviews?.[2]?.previewImage).url()}
-          alt={homeData.appPreviews?.[2]?.previewAltText}
-          width={1920}
-          height={1080}
-          className="w-full"
-        />
-      </m.div>
+        <AnimatePresence mode="sync">
+          {images.map((image, index) => {
+            const position = getPosition(index);
+
+            if (position === "hidden") return null;
+
+            const sizeClass =
+              position === "center"
+                ? "w-[280px] md:w-[380px]"
+                : "w-[240px] md:w-[320px]";
+
+            return (
+              <m.div
+                key={index}
+                className={cn(
+                  "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+                  sizeClass
+                )}
+                variants={variants}
+                initial={position}
+                animate={position}
+                exit="hidden"
+                transition={{
+                  duration: 0.7,
+                  ease: [0.32, 0.72, 0, 1],
+                  opacity: { duration: 0.5 },
+                }}
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                <div className="relative w-full aspect-9/19 overflow-hidden shadow-2xl">
+                  <Image
+                    src={urlFor(image.previewImage).url()}
+                    alt={image.previewAltText || `App Preview ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </m.div>
+            );
+          })}
+        </AnimatePresence>
+      </div>
     </m.div>
   );
 };
