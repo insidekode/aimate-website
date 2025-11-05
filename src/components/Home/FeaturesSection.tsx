@@ -37,7 +37,7 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
       </m.div>
 
       <m.h2
-        className="text-2xl md:text-4xl uppercase font-nohemi text-center mt-5"
+        className="text-2xl md:text-4xl capitalize font-nohemi text-center mt-5"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

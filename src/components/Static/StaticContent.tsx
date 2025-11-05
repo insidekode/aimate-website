@@ -21,7 +21,7 @@ const StaticContent = ({
         url={staticData.slug.current}
       />
       <div className="max-w-gutter mx-auto px-4 py-5">
-        <h1 className="text-3xl md:text-5xl uppercase font-nohemi text-center mb-5">
+        <h1 className="text-3xl md:text-5xl capitalize font-nohemi text-center mb-5">
           {staticData.heading}
         </h1>
         <PortableContent content={staticData.content} />

@@ -70,7 +70,7 @@ const DownloadSection = ({ homeData }: { homeData: homeType }) => {
           </m.div>
 
           <m.h2
-            className="text-2xl md:text-4xl uppercase font-nohemi max-md:text-center mt-5"
+            className="text-2xl md:text-4xl capitalize font-nohemi max-md:text-center mt-5"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

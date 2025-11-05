@@ -26,7 +26,7 @@ const ReviewSection = ({ homeData }: { homeData: homeType }) => {
         <Badge>REVIEWS</Badge>
       </m.div>
       <m.h2
-        className="text-2xl md:text-4xl uppercase font-nohemi text-center mt-5"
+        className="text-2xl md:text-4xl capitalize font-nohemi text-center mt-5"
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.6, delay: 0.4 }}
