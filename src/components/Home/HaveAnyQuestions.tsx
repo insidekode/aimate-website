@@ -22,7 +22,7 @@ const HaveAnyQuestions = ({ homeData }: { homeData: homeType }) => {
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         <m.h2
-          className="text-xl md:text-2xl font-nohemi max-w-60 uppercase"
+          className="text-xl md:text-2xl font-nohemi max-w-60 capitalize"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.4 }}
