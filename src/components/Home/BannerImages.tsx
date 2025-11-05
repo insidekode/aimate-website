@@ -68,7 +68,7 @@ const BannerImages = ({ homeData }: { homeData: homeType }) => {
 
   return (
     <m.div
-      className="mt-8 sm:mt-12 md:mt-16 lg:mt-24 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] xl:h-[700px] flex items-center justify-center px-4 sm:px-6 md:px-8 w-full"
+      className="mt-8 sm:mt-12 md:mt-16 lg:mt-24 h-[300px] sm:h-[500px] md:h-[600px] lg:h-[650px] xl:h-[700px] flex items-center justify-center px-4 sm:px-6 md:px-8 w-full"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 1.5 }}
@@ -89,8 +89,8 @@ const BannerImages = ({ homeData }: { homeData: homeType }) => {
                 className={cn(
                   "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
                   position === "center"
-                    ? "w-[190px] xs:w-[220px] sm:w-[260px] md:w-[320px] lg:w-[380px]"
-                    : "w-[150px] xs:w-[180px] sm:w-[220px] md:w-[280px] lg:w-[320px]"
+                    ? "md:w-[320px] lg:w-[380px]"
+                    : "md:w-[280px] lg:w-[320px]"
                 )}
                 variants={variants}
                 initial={position}
