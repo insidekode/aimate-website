@@ -24,6 +24,10 @@ function generateSiteMap(
         <loc>${SITE_URL}</loc>
         <lastmod>${new Date().toISOString()}</lastmod>
       </url>
+      <url>
+        <loc>${SITE_URL}/contact</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+      </url>
         ${urls
           ?.map((item: urlItem) => {
             return `
