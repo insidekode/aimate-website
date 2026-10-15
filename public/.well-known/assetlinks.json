@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "club.aimate",
+      "sha256_cert_fingerprints": [
+        "C8:D8:B7:06:C6:5F:1D:49:4B:6E:F0:E8:94:27:0D:38:A4:2A:5F:AD:71:C8:33:32:5F:96:63:1D:0A:01:15:98",
+        "E7:5D:AC:D0:BE:85:E5:A5:22:97:70:8C:86:AC:98:F9:B7:66:54:75:2F:C5:F7:60:B7:2D:74:D6:CA:3B:7B:7D"
+      ]
+    }
+  }
+]
