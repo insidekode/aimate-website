@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function InvitePage() {
   const router = useRouter();
@@ -23,11 +23,27 @@ export default function InvitePage() {
     <>
       <Head>
         <title>Join AiMate</title>
-        <meta name="description" content="You've been invited to join AiMate — your AI fitness coach" />
+        <meta
+          name="description"
+          content="You've been invited to join AiMate — your AI fitness coach"
+        />
         <meta property="og:title" content="Join AiMate" />
-        <meta property="og:description" content="Your friend invited you to AiMate. Get started today." />
+        <meta
+          property="og:description"
+          content="Your friend invited you to AiMate. Get started today."
+        />
       </Head>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', padding: 24, textAlign: 'center', fontFamily: 'system-ui' }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+          padding: 24,
+          textAlign: "center",
+          fontFamily: "system-ui",
+        }}
+      >
         Opening AiMate...
       </div>
     </>

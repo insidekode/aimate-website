@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function ChallengeInvitePage() {
   const router = useRouter();
@@ -23,9 +23,22 @@ export default function ChallengeInvitePage() {
     <>
       <Head>
         <title>Join AiMate Challenge</title>
-        <meta name="description" content="You've been invited to an AiMate challenge" />
+        <meta
+          name="description"
+          content="You've been invited to an AiMate challenge"
+        />
       </Head>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', padding: 24, textAlign: 'center', fontFamily: 'system-ui' }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+          padding: 24,
+          textAlign: "center",
+          fontFamily: "system-ui",
+        }}
+      >
         Opening AiMate...
       </div>
     </>
