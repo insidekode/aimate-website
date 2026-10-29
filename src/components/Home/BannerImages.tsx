@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const BannerImages = ({ homeData }: { homeData: homeType }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = homeData?.appPreviews || [];
+  const images = homeData?.appPreviews ?? [];
 
   useEffect(() => {
     if (images.length <= 1) return;

@@ -94,13 +94,15 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <Image
-                src={urlFor(homeData.featuresItems?.[0]?.previewImage).url()}
-                alt={homeData.featuresItems?.[0]?.title}
-                width={400}
-                height={300}
-                className="mt-2 w-[285px] h-auto mx-auto"
-              />
+              {homeData.featuresItems?.[0]?.previewImage && (
+                <Image
+                  src={urlFor(homeData.featuresItems[0].previewImage).url()}
+                  alt={homeData.featuresItems[0].title}
+                  width={400}
+                  height={300}
+                  className="mt-2 w-[285px] h-auto mx-auto"
+                />
+              )}
             </m.div>
           </div>
 
@@ -134,7 +136,7 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.8 }}
             >
-              {homeData?.review?.avatars.map((avatar, index) => (
+              {(homeData?.review?.avatars ?? []).map((avatar, index) => (
                 <m.div
                   key={index}
                   initial={{ opacity: 0, scale: 0 }}
@@ -258,13 +260,15 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 1.2 }}
             >
-              <Image
-                src={urlFor(homeData.featuresItems?.[1]?.previewImage).url()}
-                alt={homeData.featuresItems?.[1]?.title}
-                width={400}
-                height={300}
-                className="mt-2 w-[285px] h-auto mx-auto"
-              />
+              {homeData.featuresItems?.[1]?.previewImage && (
+                <Image
+                  src={urlFor(homeData.featuresItems[1].previewImage).url()}
+                  alt={homeData.featuresItems[1].title}
+                  width={400}
+                  height={300}
+                  className="mt-2 w-[285px] h-auto mx-auto"
+                />
+              )}
             </m.div>
           </m.div>
         </div>
@@ -305,13 +309,15 @@ const FeaturesSection = ({ homeData }: { homeData: homeType }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 1.4 }}
             >
-              <Image
-                src={urlFor(homeData.featuresItems?.[2]?.previewImage).url()}
-                alt={homeData.featuresItems?.[2]?.title}
-                width={400}
-                height={300}
-                className="mt-2 w-[285px] h-auto mx-auto"
-              />
+              {homeData.featuresItems?.[2]?.previewImage && (
+                <Image
+                  src={urlFor(homeData.featuresItems[2].previewImage).url()}
+                  alt={homeData.featuresItems[2].title}
+                  width={400}
+                  height={300}
+                  className="mt-2 w-[285px] h-auto mx-auto"
+                />
+              )}
             </m.div>
           </div>
 

@@ -32,7 +32,7 @@ const ContactContent = ({
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl w-full">
           <m.a
-            href="mailto:appaifitness@gmail.com"
+            href="mailto:admin@aimate.club"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -46,13 +46,13 @@ const ContactContent = ({
                 Email Us
               </h3>
               <p className="text-white/60 font-dm-sans text-lg group-hover:text-primary transition-colors">
-                appaifitness@gmail.com
+                admin@aimate.club
               </p>
             </div>
           </m.a>
 
           <m.a
-            href="https://www.instagram.com/aimate_club/"
+            href="https://www.instagram.com/aimate.club/"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, x: 20 }}
@@ -68,7 +68,7 @@ const ContactContent = ({
                 Follow Us
               </h3>
               <p className="text-white/60 font-dm-sans text-lg group-hover:text-primary transition-colors">
-                @aimate_club
+                @aimat.club
               </p>
             </div>
           </m.a>
