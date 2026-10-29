@@ -40,7 +40,7 @@ export type homeType = {
   featuresItems: {
     title: string;
     description: string;
-    previewImage: string;
+    previewImage: string | null;
   }[];
   review: {
     title: string;
@@ -59,8 +59,8 @@ export type homeType = {
   }[];
   downloadTitle: string;
   downloadDescription: string;
-  downloaFeatureImage: string;
-  downloaQr: string;
+  downloaFeatureImage: string | null;
+  downloaQr: string | null;
   playStoreLink: string;
   appStoreLink: string;
   faqTitle: string;

@@ -57,7 +57,7 @@ const Navbar = ({ menus }: { menus: menuItem[] }) => {
           ))}
         </div>
         <div className="flex gap-2 items-center">
-          <Button>Download</Button>
+          <Button>Coming Soon</Button>
           <div
             className="cursor-pointer md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}

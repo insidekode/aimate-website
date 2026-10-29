@@ -61,18 +61,20 @@ const BannerSection = ({ homeData }: { homeData: homeType }) => {
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            <Button>Download Now</Button>
+            <Button>Coming Soon</Button>
           </m.a>
           <m.a
-            href="/"
+            href="https://forms.gle/RsQdQedp9Sseh1no7"
+            target="_blank"
+            rel="noopener noreferrer"
             className="cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             <Button variant="outline">
-              <PlayIcon />
-              Play Video
+              {/* <PlayIcon /> */}
+              Register for Early Access
             </Button>
           </m.a>
         </m.div>
@@ -83,7 +85,7 @@ const BannerSection = ({ homeData }: { homeData: homeType }) => {
           transition={{ duration: 0.6, delay: 1.1 }}
         >
           <div className="flex justify-center">
-            {homeData?.review?.avatars.map((avatar, index) => (
+            {homeData?.review?.avatars?.map((avatar, index) => (
               <m.div
                 key={index}
                 initial={{ opacity: 0, scale: 0 }}

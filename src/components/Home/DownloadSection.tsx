@@ -26,36 +26,38 @@ const DownloadSection = ({ homeData }: { homeData: homeType }) => {
       <div id="download" />
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-x-14 gap-y-8">
         {/* --- Left Image Section --- */}
-        <m.div
-          className="w-full md:w-[300px] shrink-0 relative"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          whileHover={{ scale: isMobile ? 1.02 : 1.05 }}
-        >
+        {homeData.downloaFeatureImage && (
           <m.div
-            className="bg-primary size-48 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 rounded-full blur-[200px]"
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
+            className="w-full md:w-[300px] shrink-0 relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.0, delay: 0.3 }}
-          />
-          <m.div
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            whileHover={{ scale: isMobile ? 1.02 : 1.05 }}
           >
-            <Image
-              src={urlFor(homeData.downloaFeatureImage).url()}
-              alt="Download Feature"
-              width={800}
-              height={600}
-              className="w-full h-auto relative z-10"
+            <m.div
+              className="bg-primary size-48 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 rounded-full blur-[200px]"
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.0, delay: 0.3 }}
             />
+            <m.div
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <Image
+                src={urlFor(homeData.downloaFeatureImage).url()}
+                alt="Download Feature"
+                width={800}
+                height={600}
+                className="w-full h-auto relative z-10"
+              />
+            </m.div>
           </m.div>
-        </m.div>
+        )}
 
         {/* --- Right Text Section --- */}
         <div>
@@ -98,65 +100,67 @@ const DownloadSection = ({ homeData }: { homeData: homeType }) => {
             transition={{ duration: 0.8, delay: 0.9 }}
           >
             {/* --- QR Code --- */}
-            <m.div
-              className="relative flex items-center justify-center"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.8,
-                delay: 1.1,
-                type: "spring",
-                stiffness: 120,
-              }}
-              whileHover={{ scale: isMobile ? 1.05 : 1.1 }}
-            >
+            {homeData.downloaQr && (
               <m.div
-                initial={{ rotate: -10 }}
-                whileInView={{ rotate: 0 }}
+                className="relative flex items-center justify-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{
                   duration: 0.8,
                   delay: 1.1,
                   type: "spring",
-                  stiffness: 100,
+                  stiffness: 120,
                 }}
-                whileHover={{ rotate: 2 }}
+                whileHover={{ scale: isMobile ? 1.05 : 1.1 }}
               >
-                <Image
-                  src="/assets/qr-wrap.png"
-                  alt="QR Wrap"
-                  width={150}
-                  height={150}
-                  className="size-36"
-                />
-              </m.div>
+                <m.div
+                  initial={{ rotate: -10 }}
+                  whileInView={{ rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 1.1,
+                    type: "spring",
+                    stiffness: 100,
+                  }}
+                  whileHover={{ rotate: 2 }}
+                >
+                  <Image
+                    src="/assets/qr-wrap.png"
+                    alt="QR Wrap"
+                    width={150}
+                    height={150}
+                    className="size-36"
+                  />
+                </m.div>
 
-              <m.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-32"
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.6,
-                  delay: 1.3,
-                  type: "spring",
-                  stiffness: 150,
-                }}
-              >
-                <Image
-                  src={urlFor(homeData.downloaQr).url()}
-                  alt="QR Code"
-                  width={120}
-                  height={120}
-                  className="size-32"
-                />
+                <m.div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-32"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 1.3,
+                    type: "spring",
+                    stiffness: 150,
+                  }}
+                >
+                  <Image
+                    src={urlFor(homeData.downloaQr).url()}
+                    alt="QR Code"
+                    width={120}
+                    height={120}
+                    className="size-32"
+                  />
+                </m.div>
               </m.div>
-            </m.div>
+            )}
 
             {/* --- App Store Links --- */}
             <div className="flex flex-col gap-3">
-              <m.a
+              {/* <m.a
                 href={homeData.appStoreLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -173,7 +177,7 @@ const DownloadSection = ({ homeData }: { homeData: homeType }) => {
                   width={150}
                   height={50}
                 />
-              </m.a>
+              </m.a> */}
 
               <m.a
                 href={homeData.playStoreLink}
@@ -188,7 +192,7 @@ const DownloadSection = ({ homeData }: { homeData: homeType }) => {
               >
                 <Image
                   src="/assets/play-store.png"
-                  alt="Download on Google Play"
+                  alt="Coming Soon - Google Play"
                   width={150}
                   height={50}
                 />
