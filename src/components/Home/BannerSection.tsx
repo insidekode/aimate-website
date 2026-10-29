@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import PlayIcon from "@/icon/PlayIcon";
 import BannerImages from "./BannerImages";
+import { trackEarlyAccessClick } from "@/lib/analytics";
 
 const BannerSection = ({ homeData }: { homeData: homeType }) => {
   return (
@@ -67,6 +68,7 @@ const BannerSection = ({ homeData }: { homeData: homeType }) => {
             href="https://forms.gle/RsQdQedp9Sseh1no7"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackEarlyAccessClick}
             className="cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
