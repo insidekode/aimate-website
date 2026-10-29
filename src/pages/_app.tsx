@@ -2,6 +2,9 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import dynamic from "next/dynamic";
 import localFont from "next/font/local";
+import Script from "next/script";
+
+const GA_MEASUREMENT_ID = "G-DM5ES26106";
 
 const PagesTopLoader = dynamic(
   () => import("nextjs-toploader").then((mod) => mod.default),
@@ -55,6 +58,16 @@ const dmSans = localFont({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`${nohemi.variable} ${dmSans.variable}`}>
+      <Script id="google-analytics-init" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+window.gtag = function(){window.dataLayer.push(arguments);};
+window.gtag("js", new Date());
+window.gtag("config", "${GA_MEASUREMENT_ID}");`}
+      </Script>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
+      />
       <PagesTopLoader color="#D0FD3E" showSpinner={false} />
       <Component {...pageProps} />
     </div>
